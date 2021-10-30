@@ -24,6 +24,10 @@ class HomeTableTableViewController: UITableViewController {
         tableView.refreshControl = myRefreshControl
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.loadTweet()
+    }
     
     @objc func loadTweet(){
         
@@ -32,7 +36,6 @@ class HomeTableTableViewController: UITableViewController {
         let myParams = ["count": numberOfTweet]
         
         TwitterAPICaller.client?.getDictionariesRequest(url: myUrl, parameters: myParams, success: { (tweets: [NSDictionary]) in
-            
             self.tweetArray.removeAll()
             for tweet in tweets {
                 self.tweetArray.append(tweet)
@@ -106,8 +109,9 @@ class HomeTableTableViewController: UITableViewController {
         }
         
         
-        
-        
+        cell.setFavorite(tweetArray[indexPath.row]["favorited"] as! Bool)
+        cell.tweetId = tweetArray[indexPath.row]["id"] as! Int
+        cell.setRetweeted(tweetArray[indexPath.row]["retweeted"] as! Bool)
         
         return cell
     }

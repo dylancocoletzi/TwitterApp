@@ -22,6 +22,7 @@ The following **bonus** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/86747062/139519560-d57f07b9-8fba-497b-8d76-5f3162b2ef1d.gif)
 
 
 # Twitter - Part I
